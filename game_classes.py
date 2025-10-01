@@ -36,10 +36,8 @@ class Game:
 
     def save_scores(self):
         with open("highscore.txt", "w") as f:
-            f.write(f"Player:{self.scores['Player']}
-")
-            f.write(f"Dealer:{self.scores['Dealer']}
-")
+            f.write(f"Player:{self.scores['Player']}\n")
+            f.write(f"Dealer:{self.scores['Dealer']}\n")
 
     def play_dealer_turn(self):
         self.dealer.reset()
