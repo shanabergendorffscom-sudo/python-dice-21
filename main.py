@@ -2,7 +2,7 @@ from game_classes import Game
 
 def main():
     game = Game()
-    print("Välkommen till Tärningsspelet 21!")
+    print("Välkommen till Shanas Tärningsspelet 21!")
 
     while True:
         game.player.reset()
@@ -26,8 +26,12 @@ def main():
 
         # Dealerns tur om spelaren inte bustat
         if not game.player.busted:
-            dealer_total = game.play_dealer_turn()
-            print(f"Dealerns total: {dealer_total}")
+            print("Dealerns tur:")
+            game.dealer.reset()
+            while game.dealer.total < 17:
+                roll = game.dealer.roll()
+                print(f"Dealern slog {roll}, total: {game.dealer.total}")
+            dealer_total = game.dealer.total
             if game.dealer.busted:
                 print("Dealern gick över 21! Du vinner.")
                 game.scores["Player"] += 1
